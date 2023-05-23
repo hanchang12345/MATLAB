@@ -12,13 +12,13 @@
 % 加法、减法、乘法、除法
 %% 4.字符和字符串
 % s='a'
-s = 'a'
+s = 'a';
 % 返回ASCII码,右键执行时需要选上内容，否则会未定义
 abs(s)
 % char(ASCII)就是打印ASCII的内容
 char(97)
 % num2str(65)就是65，用 = 赋值也可以
-num2str(68)`
+num2str(68)
 % 字符串
 str='I Love MatLab && IT.'
 % 计算字符串长度

@@ -210,11 +210,52 @@ xlabel('Time(\musec)')
 title('Multiple Decay Rates')
 set(H1,'LineStyle','--')
 set(H2,'LineStyle',':')
+%% 2.三维立体绘图
+% 定义t坐标
+t=0:pi/50:10*pi
+plot3(sin(t),cos(t),t)% 自动产生幕布，x y z
+%设置坐标标签
+xlabel('sin(t)')
+ylabel('cos(t)')
+zlabel('t')
+% hold on 是绘制未完成，需要继续绘制
+% hold off 是绘制已完成
+grid on %加上网格线 
+axis square %限制图像的大小
+%% 3.图形的保存与导出
+% 在文件里可以保存文件
+% 在编辑里可以复制图片
+% 文件的导出设置里可以修改图形的大小和设置
 %%
-
-
-
-
-
-
-
+[x,y,z]=peaks(30)
+mesh(x,y,z)
+grid on
+%%图形窗口的分割
+% subplot(行，列，位置)
+x=linspace(0,2*pi,60)% x从零开始到2pi，生成60个等间距的行向量
+subplot(2,2,1)% 把图形划分为两行两列，设置第一个图形
+plot(x,sin(x)-1)% 创建Y中数据对x中的对应值的二维曲线
+title('sin(x)-1')
+axis([0,2*pi,-2,0])% 设置坐标轴的范围和纵横比，x从0到2*pi，y从-2到0
+subplot(2,1,2)% 设置为2行1列，设置第二个图
+plot(x,cos(x)+1)
+title('cos(x)+1')
+axis([0,2*pi,0,2])
+subplot(4,4,3)% 设置整个幕布为4行4列，设置第三块区域
+plot(x,tan(x))
+title('tan(x)')
+axis([0,2*pi,-40,40])
+subplot(4,4,8)
+plot(x,cot(x))
+title('cot(x)')
+axis([0,2*pi,-35,35])
+%% 双坐标轴
+x=linspace(0,10);
+y1=sin(3*x);
+y2=sin(3*x).*exp(0.5*x);
+yyaxis left 
+plot(x,y1,'k')
+title('sin(x)')
+yyaxis right
+plot(x,y2,'r')
+ title('cos(x)')

@@ -58,5 +58,21 @@ BG=imopen(I, strel('disk', 15));
 I2=imsubtract(I, BG); BW=imbinarize(I2, graythresh(I2)); 
 ObjI = bwselect(BW); imshow(ObjI);
 % 回车显示选中的米粒
+%%
+x=linspace(0,2*pi,100);
+y1=sin(2.*x);
+y2=cos(2.*x);
+yyaxis left;
+plot(x,y1,'r-','LineWidth',3);
+ylabel('y1=sin(2x)');
+yyaxis right;
+plot(x,y2,'b-.','LineWidth',3);
+ylabel('y2=cos(2x)');
+legend('sin(2x)','cos(2x)');
+xticks(0:pi/2:2*pi);
+xticklabels({'0','\pi/2','\pi','3\pi/2','2\pi'});
+xlim([0 2*pi]);
+
+
 
 
